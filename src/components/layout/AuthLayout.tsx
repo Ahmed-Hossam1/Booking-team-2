@@ -1,13 +1,9 @@
-import type { ReactNode } from "react";
+import { Outlet } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import waveFill from "@/assets/auth-wave-fill.png";
 import waveLine from "@/assets/auth-wave-line.png";
 
-type Props = {
-  children: ReactNode;
-};
-
-export default function AuthLayout({ children }: Props) {
+export default function AuthLayout() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-(--bg)">
       <img
@@ -33,7 +29,9 @@ export default function AuthLayout({ children }: Props) {
       </div>
 
       <div className="relative z-10 flex min-h-screen items-center justify-center px-6 py-20 lg:justify-start lg:pl-[12%] lg:pr-0">
-        <div className="w-full max-w-sm">{children}</div>
+        <div className="w-full max-w-sm">
+          <Outlet />
+        </div>
       </div>
     </div>
   );

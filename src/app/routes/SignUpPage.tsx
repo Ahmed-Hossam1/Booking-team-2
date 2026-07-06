@@ -1,11 +1,10 @@
-import AuthLayout from "@/components/layout/AuthLayout";
 import SignUpForm from "@/features/auth/components/SignUpForm";
 import GoogleBtn from "@/features/auth/components/GoogleBtn";
 import OrLine from "@/features/auth/components/OrLine";
 
 export default function SignUpPage() {
   return (
-    <AuthLayout>
+    <>
       <div className="flex flex-col items-center text-center">
         <h1 className="font-heading text-3xl font-semibold text-(--Auth-head-font-color)">
           Sign up
@@ -25,6 +24,6 @@ export default function SignUpPage() {
           Sign in
         </a>
       </p>
-    </AuthLayout>
+    </>
   );
 }
