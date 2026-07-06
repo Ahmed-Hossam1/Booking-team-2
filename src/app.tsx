@@ -1,12 +1,13 @@
-import Nav from "./components/shared/Nav"
-import ChooseSpecialistPage from "./features/chooseSpecialist/components/ChooseSpecialistPage";
-const App = () => {
-    return (
-      <>
-        <Nav />
-        <ChooseSpecialistPage/>
-      </>
-    );
-}
+import { RouterProvider } from "react-router-dom";
+import { AppProviders } from "@/app/providers/AppProviders";
+import { router } from "@/app/routes/page";
 
-export default App
+const App = () => {
+  return (
+    <AppProviders>
+      <RouterProvider router={router} />
+    </AppProviders>
+  );
+};
+
+export default App;
