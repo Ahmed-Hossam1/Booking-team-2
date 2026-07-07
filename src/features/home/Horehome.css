@@ -1,0 +1,236 @@
+.hero-section{
+    position:relative;
+    overflow:hidden;
+    padding:80px 0;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 14px;
+}
+
+.hero-content{
+    width:90%;
+    max-width: 1400px;
+    margin:auto;
+    display:flex;
+    align-items:flex-start; /* خليته من فوق */
+    gap:70px;
+    position:relative;
+    z-index:5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.hero-left{
+    width:220px;
+    text-align:center;
+    padding-top: 20px;
+}
+
+.location-icon{
+    width:85px;
+    height:85px;
+    margin:auto;
+    border-radius:50%;
+    background:#eef5ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.map-icon{
+    width:42px;
+    height:42px;
+    color:#3b82f6;
+}
+
+.location-text{
+    margin-top:15px;
+    color:#555;
+    font-weight:600;
+}
+
+.hero-center{
+    flex:1;
+}
+
+/* Badge الجديدة */
+.upgrade-badge{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  max-width: 300px;
+  height: 70px;
+}
+
+.hero-center h1{
+    font-size:52px;
+    line-height:1.2;
+    margin-bottom:20px;
+    color:#1e293b;
+    font-family: serif;
+}
+
+.hero-center p{
+    max-width:620px;
+    color:#64748b;
+    line-height:1.9;
+    font-size: 16px;
+}
+
+.patients{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:35px 0;
+    background: #f8fafc;
+    padding: 8px 16px;
+    border-radius: 50px;
+    width: fit-content;
+}
+
+.avatars{
+    display:flex;
+}
+
+.avatars img{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    border:2px solid #fff;
+    margin-left:-8px;
+    object-fit: cover;
+}
+.avatars img:first-child{margin-left:0;}
+
+.patients span{
+  font-size: 14px;
+  color: #475569;
+  font-weight: 500;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.primary-btn{
+background:#2563eb;
+color:#fff;
+border:none;
+padding:15px 35px;
+border-radius:12px;
+cursor:pointer;
+font-size:16px;
+font-weight:600;
+transition: .3s;
+}
+.primary-btn:hover{background: #1d4ed8;}
+
+.secondary-btn{
+display:flex;
+align-items:center;
+gap:10px;
+padding:15px 35px;
+border-radius:12px;
+background:#fff;
+border:1.5px solid #dbeafe;
+color:#3b82f6;
+cursor:pointer;
+font-weight:600;
+font-size:16px;
+transition: .3s;
+}
+.secondary-btn:hover{background: #eff6ff;}
+
+.book-tag{
+    position:absolute;
+    right: 8%;
+    bottom: 20px;
+    transform:rotate(-35deg); /* ميلته */
+    z-index:20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 30px;
+}
+
+.book-tag .arrow-icon{
+  transform: rotate(180deg); /* خليت السهم لتحت */
+}
+
+.book-tag span{
+    font-size:15px;
+    font-weight:500;
+    color:#64748b;
+    transform: rotate(10deg); /* عدلت الكلمة */
+}
+
+.circle-one{
+    position:absolute;
+    width:1200px;
+    height:1200px;
+    border:1px solid rgba(59,130,246,.08);
+    border-radius:50%;
+    left:-500px;
+    top:-350px;
+}
+
+.circle-one::before,
+.circle-one::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    border:1px solid rgba(59,130,246,.08);
+}
+
+.circle-one::before{inset:80px;}
+.circle-one::after{inset:160px;}
+
+.circle-two{
+position:absolute;
+width:1200px;
+height:1200px;
+border:1px solid rgba(59,130,246,.08);
+border-radius:50%;
+right:200px;
+bottom:-350px;
+}
+
+/* Responsive */
+@media(max-width:992px){
+.hero-content{
+flex-direction:column;
+text-align:center;
+align-items: center;
+}
+.hero-center p{margin:auto;}
+.patients{justify-content:center;margin: 35px auto;}
+.hero-buttons{justify-content:center;}
+.book-tag{display:none;}
+.hero-center h1{font-size:40px;}
+.upgrade-badge{margin: 0 auto 24px;}
+}
+
+@media(max-width:768px){
+.hero-center h1{font-size:32px;}
+.primary-btn,
+.secondary-btn{width:100%;justify-content:center;}
+.location-icon{width:70px;height:70px;}
+.map-icon{width:35px;height:35px;}
+.circle-one{width:700px;height:700px;left:-300px;}
+.circle-two{width:500px;height:500px;right:-220px;}
+}
