@@ -1,5 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import MainLayout from "@/components/layout/MainLayout";
+import HomePage from "@/features/home/HomePage";
 import SignInPage from "@/app/routes/SignInPage";
 import SignUpPage from "@/app/routes/SignUpPage";
 import OTPVerifyPage from "@/app/routes/OTPVerifyPage";
@@ -8,12 +9,11 @@ import AuthLayout from "@/components/layout/AuthLayout";
 import ProfilePageLayout from "./routes/ProfilePageLayout";
 import ProfilePersonalPage from "./routes/ProfilePersonalPage";
 import ProfilePasswordPage from "./routes/ProfilePasswordPage";
-
+import BookingPage from "./routes/BookingPage";
 export const router = createBrowserRouter([
   {
     element: <AuthLayout />,
     children: [
-      { path: "/", element: <SignInPage /> },
       { path: "/sign-in", element: <SignInPage /> },
       { path: "/sign-up", element: <SignUpPage /> },
       { path: "/otp-verify", element: <OTPVerifyPage /> },
@@ -22,6 +22,8 @@ export const router = createBrowserRouter([
   {
     element: <MainLayout />,
     children: [
+      { path: "/", element: <HomePage /> },
+      { path: "/booking", element: <BookingPage /> },
       {
         path: "/choose-specialist",
         element: <ChooseSpecialistPage />,
