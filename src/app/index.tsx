@@ -5,6 +5,7 @@ import SignUpPage from "@/app/routes/SignUpPage";
 import OTPVerifyPage from "@/app/routes/OTPVerifyPage";
 import ChooseSpecialistPage from "@/features/chooseSpecialist/components/ChooseSpecialistPage";
 import AuthLayout from "@/components/layout/AuthLayout";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -24,5 +25,9 @@ export const router = createBrowserRouter([
         element: <ChooseSpecialistPage />,
       },
     ],
+  },
+  {
+    element: <ProtectedRoute />, // ← guard wraps everything below
+    children: [],
   },
 ]);
