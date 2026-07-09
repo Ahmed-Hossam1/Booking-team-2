@@ -1,9 +1,21 @@
-import React from 'react'
+import Horehome from "@/features/home/Horehome";
+import Homework from "@/features/home/Homework";
+import Findcard from "@/features/home/Findcard";
+import Docterhome from "@/features/home/Docterhome";
+import Reviews from "@/features/home/Reviews";
+import FAQ from "@/features/home/FQa";
+import Footer from "@/features/home/Footer";
 
-function HomePage() {
+export default function HomePage() {
   return (
-    <div>HomePage</div>
-  )
+    <>
+      <Horehome />
+      <Homework />
+      <Findcard />
+      <Docterhome />
+      <Reviews />
+      <FAQ />
+      <Footer />
+    </>
+  );
 }
-
-export default HomePage

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Horehome from "./features/home/Horehome";
@@ -9,24 +10,17 @@ import FAQ   from "./features/home/FQa";
 
 
 import ChooseSpecialistPage from "./features/chooseSpecialist/components/ChooseSpecialistPage";
+=======
+import { RouterProvider } from "react-router-dom";
+import { AppProviders } from "@/app/providers/AppProviders";
+import { router } from "@/app/index";
+>>>>>>> origin/main
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<><Horehome /> <Homework/>   <Findcard/> <Docterhome/> 
-          <Reviews/>  <FAQ/>
-          </>} />
-        </Route>
-        
-
-        <Route
-          path="/choose-specialist"
-          element={<ChooseSpecialistPage />}
-        />
-      </Routes>
-    </BrowserRouter>
+    <AppProviders>
+      <RouterProvider router={router} />
+    </AppProviders>
   );
 };
 
