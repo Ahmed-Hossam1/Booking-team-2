@@ -10,6 +10,7 @@ import ProfilePageLayout from "./routes/ProfilePageLayout";
 import ProfilePersonalPage from "./routes/ProfilePersonalPage";
 import ProfilePasswordPage from "./routes/ProfilePasswordPage";
 import BookingPage from "./routes/BookingPage";
+import ContactUsPage from "@/features/contactUs/ContactUs";
 export const router = createBrowserRouter([
   {
     element: <AuthLayout />,
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/booking", element: <BookingPage /> },
+      { path: "/contact-us", element: <ContactUsPage /> },
       {
         path: "/choose-specialist",
         element: <ChooseSpecialistPage />,
