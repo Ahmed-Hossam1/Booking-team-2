@@ -1,0 +1,21 @@
+import Horehome from "@/features/home/Horehome";
+import Homework from "@/features/home/Homework";
+import Findcard from "@/features/home/Findcard";
+import Docterhome from "@/features/home/Docterhome";
+import Reviews from "@/features/home/Reviews";
+import FAQ from "@/features/home/FQa";
+import Footer from "@/features/home/Footer";
+
+export default function HomePage() {
+  return (
+    <>
+      <Horehome />
+      <Homework />
+      <Findcard />
+      <Docterhome />
+      <Reviews />
+      <FAQ />
+      <Footer />
+    </>
+  );
+}
