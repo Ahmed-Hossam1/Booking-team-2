@@ -54,7 +54,7 @@ function getCards(){
 }
 
 const ChooseSpecialistPage=()=>{
-  const [filterAsideState, setFilterAsideState] = useState(true);
+  const [filterAsideState, setFilterAsideState] = useState(false);
     return (
       <>
         <section className="min-h-[calc(100vh-112.5px)">
