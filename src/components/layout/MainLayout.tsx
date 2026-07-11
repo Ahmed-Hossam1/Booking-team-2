@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Nav from "@/features/home/Navbarhome";
+import Nav from "@/components/shared/Nav";
 import Footer from "@/features/home/Footer";
 
 export default function MainLayout() {

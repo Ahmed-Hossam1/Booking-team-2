@@ -7,12 +7,24 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group";
 
-const SearchBar = ({ color , padding}: { color?: string , padding?:string}) => {
+const SearchBar = ({
+  color,
+  padding,
+}: {
+  color?: string;
+  padding?: string;
+}) => {
   return (
     <Field className="">
-      <InputGroup style={{backgroundColor:color, paddingBlock:padding ,height:'60px',width:'750px'
-        ,marginLeft:'auto'
-      }}>
+      <InputGroup
+        style={{
+          backgroundColor: color,
+          paddingBlock: padding,
+          height: "60px",
+          width: "750px",
+          marginLeft: "auto",
+        }}
+      >
         <InputGroupInput
           id="inline-start-input"
           placeholder="Search about specialty, doctor "
@@ -24,6 +36,6 @@ const SearchBar = ({ color , padding}: { color?: string , padding?:string}) => {
       </InputGroup>
     </Field>
   );
-}
+};
 
 export default SearchBar;
