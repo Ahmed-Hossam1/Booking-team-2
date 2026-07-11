@@ -23,7 +23,8 @@ const DoctorCard = ({
           <img
             src="https://placehold.co/400x400"
             className="size-21 rounded-lg"
-          ></img>
+            alt="DoctorCardImage"
+          />
           {/*=== ProfileImage ===*/}
           <section className="space-y-1">
             <h5 className="text-text-h font-semibold capitalize">
