@@ -9,7 +9,7 @@ import profileImage from "@/assets/profileImage.jpg";
 
 const linkClass =
   "block text-text-h text-sm font-light capitalize py-2 px-3 bg-grey rounded-lg w-fit cursor-pointer";
-const links = ["home", "booking", "chat"];
+const links = ["home", "booking", "contact us"];
 
 const Nav = () => {
   const [linksMenu, setLinksMenu] = useState<boolean>(false);
@@ -29,7 +29,11 @@ const Nav = () => {
                 {links.map((link, index) => (
                   <li key={index}>
                     <Link
-                      to={`/${link === "home" ? "" : link}`}
+                      to={`/${
+                        link === "home"
+                          ? ""
+                          : link.replace(/\s+/g, "-").toLowerCase()
+                      }`}
                       className={linkClass}
                     >
                       {link}

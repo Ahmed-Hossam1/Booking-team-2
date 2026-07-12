@@ -1,23 +1,93 @@
 import { Button } from "@/components/ui/button";
-import BirthDataPicker from "@/features/profile/components/BirthDataPicker";
+import BirthDayFieldWrapper from "@/features/profile/components/BirthDayFieldWrapper";
 import EditProfileInput from "@/features/profile/components/EditProfileInput";
+import { days, months, years } from "@/features/profile/constants/constants";
+import {
+  editProfileSchema,
+  type EditProfileType,
+} from "@/features/profile/schemas/profileSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
 export default function ProfilePersonalPage() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<EditProfileType>({ resolver: zodResolver(editProfileSchema) });
+
+  function onSubmit(data: EditProfileType) {
+    console.log(data);
+  }
   return (
     <>
       <h1 className="text-lg text-black">Personal information</h1>
-      <div className="md:grid md:grid-cols-2 md:gap-x-25 md:gap-y-5 gap-y-6">
-        <EditProfileInput title="Full Name" />
-        <EditProfileInput title="Phone Number" />
-        <EditProfileInput title="Email" />
-        <BirthDataPicker />
-        <EditProfileInput title="Location" className="col-span-2" />
-      </div>
-      <div className="w-full text-end">
-        <Button className="md:w-1/3 w-full py-3 text-center bg-brand text-white">
-          Save Changes
-        </Button>
-      </div>
+
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+        <div className="md:grid md:grid-cols-2 md:gap-x-25 md:gap-y-5 gap-y-6">
+          <EditProfileInput {...register("name")} title="Full Name" />
+          <EditProfileInput {...register("phone")} title="Phone Number" />
+          <EditProfileInput {...register("email")} title="Email" />
+          <div className="space-y-1">
+            <div>
+              <label className="text-sm text-black">Your Birthday</label>
+            </div>
+            {/*birthday */}
+            <div className="grid grid-cols-3 gap-4">
+              <BirthDayFieldWrapper>
+                <select
+                  className="w-full outline-none"
+                  {...register("birth_Day")}
+                >
+                  {days.map((day) => (
+                    <option key={day} value={day} className="text-sm">
+                      {day}
+                    </option>
+                  ))}
+                </select>
+              </BirthDayFieldWrapper>
+              <BirthDayFieldWrapper>
+                <select
+                  className="w-full outline-none"
+                  {...register("birth_Month")}
+                >
+                  {months.map((month) => (
+                    <option key={month} value={month}>
+                      {month}
+                    </option>
+                  ))}
+                </select>
+              </BirthDayFieldWrapper>
+              <BirthDayFieldWrapper>
+                <select
+                  className="w-full outline-none"
+                  {...register("birth_Year")}
+                >
+                  {years.map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+              </BirthDayFieldWrapper>
+            </div>
+          </div>
+          {/*location */}
+          <EditProfileInput
+            {...register("location")}
+            title="Location"
+            className="col-span-2"
+          />
+        </div>
+        <div className="w-full text-end">
+          <Button
+            type="submit"
+            className="md:w-1/3 w-full py-3 text-center bg-brand text-white hover:bg-blue-700"
+          >
+            Save Changes
+          </Button>
+        </div>
+      </form>
     </>
   );
 }
