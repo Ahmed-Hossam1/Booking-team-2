@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import BirthDayFieldWrapper from "@/features/profile/components/BirthDayFieldWrapper";
 import EditProfileInput from "@/features/profile/components/EditProfileInput";
 import { days, months, years } from "@/features/profile/constants/constants";
+import { useEditProfile } from "@/features/profile/hooks/useEditProfile";
 import {
   editProfileSchema,
   type EditProfileType,
@@ -15,6 +16,7 @@ export default function ProfilePersonalPage() {
     handleSubmit,
     formState: { errors },
   } = useForm<EditProfileType>({ resolver: zodResolver(editProfileSchema) });
+  // const {mutate,isError,isSuccess,error}=useEditProfile();
 
   function onSubmit(data: EditProfileType) {
     console.log(data);
@@ -25,9 +27,21 @@ export default function ProfilePersonalPage() {
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
         <div className="md:grid md:grid-cols-2 md:gap-x-25 md:gap-y-5 gap-y-6">
-          <EditProfileInput {...register("name")} title="Full Name" />
-          <EditProfileInput {...register("phone")} title="Phone Number" />
-          <EditProfileInput {...register("email")} title="Email" />
+          <EditProfileInput
+            {...register("name")}
+            title="Full Name"
+            errorMSG={errors.name?.message}
+          />
+          <EditProfileInput
+            {...register("phone")}
+            title="Phone Number"
+            errorMSG={errors.phone?.message}
+          />
+          <EditProfileInput
+            {...register("email")}
+            title="Email"
+            errorMSG={errors.email?.message}
+          />
           <div className="space-y-1">
             <div>
               <label className="text-sm text-black">Your Birthday</label>
@@ -77,6 +91,7 @@ export default function ProfilePersonalPage() {
             {...register("location")}
             title="Location"
             className="col-span-2"
+            errorMSG={errors.location?.message}
           />
         </div>
         <div className="w-full text-end">

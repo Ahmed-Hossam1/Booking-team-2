@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import EditProfileInput from "@/features/profile/components/EditProfileInput";
+import { useEditPassword } from "@/features/profile/hooks/useEditPassword";
 import {
   changePasswordSchema,
   type ChangePasswordType,
@@ -16,6 +17,7 @@ export default function ProfilePasswordPage() {
     resolver: zodResolver(changePasswordSchema),
   });
   console.log(errors);
+  const { mutate, isError, isSuccess, error } = useEditPassword();
 
   function onSubmit(data: ChangePasswordType) {
     console.log(data);
