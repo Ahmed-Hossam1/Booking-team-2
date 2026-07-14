@@ -1,29 +1,12 @@
+import type { UseFormRegisterReturn } from "react-hook-form";
+import { days, months, years } from "../constants/constants";
 import BirthDayFieldWrapper from "./BirthDayFieldWrapper";
 
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-const days = Array.from({ length: 31 }, (_, i) => i + 1);
-
-const currentYear = new Date().getFullYear();
-const years = Array.from(
-  { length: currentYear - 1900 + 1 },
-  (_, i) => currentYear - i
-);
-
-export default function BirthDataPicker() {
+export default function BirthDataPicker({
+  register,
+}: {
+  register: UseFormRegisterReturn;
+}) {
   return (
     <div className="space-y-1">
       <div>
@@ -49,7 +32,7 @@ export default function BirthDataPicker() {
           </select>
         </BirthDayFieldWrapper>
         <BirthDayFieldWrapper>
-          <select className="w-full outline-none ">
+          <select className="w-full outline-none">
             {years.map((year) => (
               <option key={year} value={year}>
                 {year}

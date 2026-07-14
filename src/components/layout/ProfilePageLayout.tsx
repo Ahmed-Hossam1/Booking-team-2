@@ -1,5 +1,6 @@
 import LeftPanelLinks from "@/features/profile/components/LeftPanelLinks";
 import NameAndAddress from "@/features/profile/components/NameAndAddress";
+import ProfileImage from "@/features/profile/components/ProfileImage";
 
 import { Camera } from "lucide-react";
 import { Outlet } from "react-router-dom";
@@ -13,12 +14,10 @@ export default function ProfilePageLayout() {
           <div className="md:mt-20 md:mx-18 mdd:mb-12 text-center flex flex-col justify-center items-center space-y-4 ">
             {/*Profile photo */}
             <div className="h-28.25 w-28.25 md:mx-[31.5px] relative ">
-              <div className="rounded-full h-full w-full overflow-hidden ">
-                <img
-                  src="/profileImage.jpg"
-                  className="object-cover w-full h-full"
-                />
-              </div>
+              <ProfileImage
+                imageUrl="/src/assets/profileImage.jpg"
+                className="w-full h-full"
+              />
               <div className="rounded-full bg-[#E6EFFF] w-8 h-8 absolute -right-1.5 bottom-1.5 z-1 flex justify-center items-center">
                 <button className="cursor-pointer">
                   <Camera color="#005AFB" className="m-auto h-6 w-6" />
