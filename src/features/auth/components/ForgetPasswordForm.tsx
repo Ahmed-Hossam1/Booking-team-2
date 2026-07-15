@@ -1,9 +1,8 @@
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
-// import { Checkbox } from "@/components/ui/checkbox";
 import { PhoneField } from "@/features/auth/components/PhoneField";
-// import { Input } from "@/components/shared/Input";
+
 import {
   forgetPasswordSchema,
   type ForgetPasswordFormValues,
@@ -11,11 +10,10 @@ import {
 import useForgetPassword from "../hooks/useForgetPassword";
 
 const ForgetPasswordForm = () => {
-  const { mutate: forgetPassword, isError, isPending } = useForgetPassword();
+  const { mutate: forgetPassword, isPending } = useForgetPassword();
   const {
     control,
     handleSubmit,
-    formState: { errors },
   } = useForm<ForgetPasswordFormValues>({
     resolver: zodResolver(forgetPasswordSchema),
     defaultValues: { phone: "" },

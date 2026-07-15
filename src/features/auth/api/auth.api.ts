@@ -13,6 +13,8 @@ import type {
   ResetPasswordResponse,
   ForgetPasswordPayload,
   ForgetPasswordResponse,
+  VerifyResetOtpPayload,
+  VerifyResetOtpResponse,
 } from "@/features/auth/types/auth";
 import apiClient from "@/services/ApiClient";
 
@@ -40,6 +42,14 @@ export const authApi = {
   ): Promise<ForgetPasswordResponse> {
     return apiClient.post<ForgetPasswordResponse>(
       "/auth/forgot-password",
+      payload,
+    );
+  },
+  async verifyResetOtp(
+    payload: VerifyResetOtpPayload,
+  ): Promise<VerifyResetOtpResponse> {
+    return apiClient.post<VerifyResetOtpResponse>(
+      "/auth/verify-reset-otp",
       payload,
     );
   },

@@ -12,7 +12,9 @@ const useForgetPassword = () => {
     mutationFn: ({ phone }: ForgetPasswordPayload) =>
       authApi.forgetPassword({ phone }),
     onSuccess: (res, variables) => {
-      navigate("/reset-password", {
+      toast.success(res.message);
+      // OTP was sent; go verify it to obtain the reset_token.
+      navigate("/verify-reset-otp", {
         replace: true,
         state: { phone: variables.phone },
       });

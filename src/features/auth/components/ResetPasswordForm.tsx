@@ -6,8 +6,13 @@ import {
   resetPasswordSchema,
   type ResetPasswordFormValues,
 } from "@/features/auth/schemas/auth.schema";
-
+import useResetPassword from "../hooks/useResetPassword";
+import { Navigate, useLocation } from "react-router-dom";
 const ResetPasswordForm = () => {
+  const location = useLocation();
+  const { phone, reset_token } =
+    (location.state as { phone?: string; reset_token?: string }) ?? {};
+
   const {
     register,
     handleSubmit,
@@ -17,8 +22,15 @@ const ResetPasswordForm = () => {
     defaultValues: { password: "", password_confirmation: "" },
   });
 
-  const onSubmit = (data: ResetPasswordFormValues) => {
-    console.log(data);
+  const { mutate: resetPassword, isPending } = useResetPassword();
+
+  if (!phone || !reset_token) return <Navigate to="/forget-password" replace />;
+
+  const onSubmit = ({
+    password,
+    password_confirmation,
+  }: ResetPasswordFormValues) => {
+    resetPassword({ phone, reset_token, password, password_confirmation });
   };
 
   return (
@@ -42,7 +54,13 @@ const ResetPasswordForm = () => {
         {...register("password_confirmation")}
       />
 
-      <Button type="submit" variant="brand" size="xl" fullWidth>
+      <Button
+        type="submit"
+        variant="brand"
+        size="xl"
+        fullWidth
+        isLoading={isPending}
+      >
         Reset Password
       </Button>
     </form>

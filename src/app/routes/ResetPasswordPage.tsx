@@ -4,10 +4,7 @@ import ResetPasswordForm from "@/features/auth/components/ResetPasswordForm";
 const ResetPasswordPage = () => {
   return (
     <>
-      <AuthHeader
-        title="Reset Password"
-        text="Please Enter your phone number"
-      />
+      <AuthHeader title="Reset Password" text="Please enter new password" />
       <ResetPasswordForm />
     </>
   );

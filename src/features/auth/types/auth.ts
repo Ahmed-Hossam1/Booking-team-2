@@ -45,6 +45,13 @@ export interface ResendOtpPayload {
 }
 export type ResendOtpResponse = ApiResponse<unknown[]>;
 
+export type VerifyResetOtpPayload = {
+  phone: string;
+  otp: string;
+};
+
+export type VerifyResetOtpResponse = ApiResponse<{ reset_token: string }>;
+
 export type ForgetPasswordPayload = { phone: string };
 
 export type ForgetPasswordResponse = {
